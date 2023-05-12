@@ -7,15 +7,15 @@
 * Note: 
 ***
 
-global root "/Users/kodam1/Documents/document/研究/GSR/QOpen/analysis/stata"
-global root2 "/Users/kodam1/Documents/document/研究/GSR/QOpen/MSWord"
+global root "stata"
+global root2 ""
 global xvars "rainfed upland ce_method gender education farm_exper hhsize organization ln_distance"
 
 
 **************************************************************************
 * Preparation 
 **************************************************************************
-use $root/GSR_QOpen.dta, clear
+use "https://raw.githubusercontent.com/Wataru-jp/GSR-Impact-assessment-in-Mozambique/main/data/GSR_QOpen.dta", clear
 label var yield "Yield (kg/ha)"
 label var tcost "Total cost (MZN/ha)"
 label var area "Area (ha)"
@@ -326,7 +326,7 @@ stop
 **************************************************************************
 * List of tables
 **************************************************************************
-use $root/GSR_QOpen.dta, clear
+use "https://raw.githubusercontent.com/Wataru-jp/GSR-Impact-assessment-in-Mozambique/main/data/GSR_QOpen.dta", clear
 // create variables 
 gen cost = (tcost/yield)*1000
 gen ln_yield=log(yield)
@@ -682,7 +682,7 @@ graph export $root2/eps-figures/figA1d.eps, as(eps) name("Graph") replace
 ***************
 * Figure 1
 ***************
-use $root/MZ_Rice.dta, clear
+use "https://raw.githubusercontent.com/Wataru-jp/GSR-Impact-assessment-in-Mozambique/main/data/MZ_Rice.dta", clear
 set scheme s1mono
 gen self_eff = production/consumption*100
 graph twoway ///
